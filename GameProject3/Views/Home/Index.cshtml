@@ -1,0 +1,33 @@
+﻿@model GameProject3.Models.Player
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<script> var wood = @Model.wood
+    var gatherStrength = @Model.gatherStrength
+    function gatherWood(){
+        wood += 1 * gatherStrength
+        document.getElementById("wood").innerHTML = wood; 
+        
+    }
+    document.writeln(@Model.wood);
+    document.writeln(@Model.gatherStrength);
+    </script>
+
+
+<div>
+    <h1>Build It</h1>
+</div>
+
+<sub>Playing as @Model.Name</sub>
+
+@*<div><input type="button" id="collectWood" value="Collect Wood" onclick=""/><span id="woodCount"></span></div>
+<form asp-action="gatherWood" asp-fragment="">
+    <input type="hidden" asp-for="wood" /> 
+    <input type="submit" value="Gather Wood" class="btn btn-primary"/> @Model.wood
+</form>
+<input type="submit" value="Collect Wood" formaction="gatherWood(myPlayer)" /> &nbsp;&nbsp;&nbsp; @Model.wood
+
+<div><input type="button" id="woodHut" value="Lumberjack Hut" /><span id="hutCount"></span></div>*@
+
+<input type="button" onclick="gatherWood()" id="gatherWood" value="Gather Wood" /> <span id="wood">0</span>
