@@ -12,6 +12,7 @@
     var stoneGatherStrength = @Model.stoneGatherStrength;
     var stone = @Model.stone;
     var stoneHutCost = @Model.stoneHutCost;
+    var stoneDiv = document.getElementById("stoneHidden");
 
 
     function gatherWood(){
@@ -38,6 +39,9 @@
         document.getElementById("lumberHut").innerHTML = lumberHut;
         document.getElementById("stone").innerHTML = stone;
         document.getElementById("stoneHut").innerHTML = stoneHut;
+        if (wood > 75 && stoneHidden.hidden == true) {
+            document.getElementById("stoneHidden").hidden = false;
+        }
     }
     function buildStoneHut() {
         if (wood >= stoneHutCost) {
@@ -73,6 +77,6 @@
 
 <input type="button" onclick="buildLumberHut()" id="buyLumberHut" value="Build Lumber Hut" /> <span>Wood needed: </span><span id="lumberHutCost">10</span><span>Lumber Huts: </span><span id="lumberHut">0</span><br /><br /><br />
 
-<input type="button" onclick="gatherStone()" id="gatherStone" value="Gather Stone" /> <span id="stone">0</span><br /><br /><br />
+<div  id="stoneHidden" hidden><input type="button" onclick="gatherStone()" id="gatherStone" value="Gather Stone" /> <span id="stone">0</span><br /><br /><br />
 
-<input type="button" onclick="buildStoneHut()" id="buyStoneHut" value="Build Stone Hut" /> <span>Wood needed: </span><span id="stoneHutCost">100</span><span>Stone Huts: </span><span id="stoneHut">0</span><br /><br /><br />
+<input type="button" onclick="buildStoneHut()" id="buyStoneHut" value="Build Stone Hut" /> <span>Wood needed: </span><span id="stoneHutCost">100</span><span>Stone Huts: </span><span id="stoneHut">0</span><br /><br /><br /></div>
