@@ -10,15 +10,23 @@
     var lumberHut = @Model.lumberHut;
     function gatherWood(){
         wood += 1 * gatherStrength
-        document.getElementById("wood").innerHTML = wood;
+        update();
+        
 
     }
     function buildLumberHut() {
         if (wood > lumberHutCost) {
             wood -= lumberHutCost;
+            lumberHut++;
             gatherStrength++;
             lumberHutCost *= 1.5;
+            update();
         }
+    }
+    function update() {
+        document.getElementById("wood").innerHTML = wood;
+        document.getElementById("lumberHutCost").innerHTML = lumberHutCost;
+        document.getElementById("lumberHut").innerHTML = lumberHut;
     }
     document.writeln(@Model.wood);
     document.writeln(@Model.gatherStrength);
