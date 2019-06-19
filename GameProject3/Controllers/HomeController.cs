@@ -19,7 +19,8 @@ namespace GameProject3.Controllers
                 Name = "Ian",
                 wood = 0,
                 lumberHut = 0,
-                gatherStrength = 1
+                gatherStrength = 1,
+                lumberHutCost = 10
             };
             return View(myPlayer);
         }

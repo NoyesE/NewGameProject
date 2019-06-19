@@ -11,6 +11,7 @@ namespace GameProject3.Models
         public int wood { get; set; }
         public int lumberHut { get; set; }
         public int gatherStrength { get; set; }
+        public int lumberHutCost { get; set; }
 
         private Player gatherWood(Player p)
         {
