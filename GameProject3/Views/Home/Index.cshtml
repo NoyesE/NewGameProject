@@ -8,14 +8,23 @@
     var gatherStrength = @Model.gatherStrength;
     var lumberHutCost = @Model.lumberHutCost;
     var lumberHut = @Model.lumberHut;
-    function gatherWood(){
-        wood += 1 * gatherStrength
-        update();
-        
+    var stoneHut = @Model.stoneHut;
+    var stoneGatherStrength = @Model.stoneGatherStrength;
+    var stone = @Model.stone;
+    var stoneHutCost = @Model.stoneHutCost;
 
+
+    function gatherWood(){
+        wood += 1 * gatherStrength;
+        update();
     }
+    function gatherStone() {
+        stone += 1 * stoneGatherStrength;
+        update();
+    }
+
     function buildLumberHut() {
-        if (wood > lumberHutCost) {
+        if (wood >= lumberHutCost) {
             wood -= lumberHutCost;
             lumberHut++;
             gatherStrength++;
@@ -27,6 +36,18 @@
         document.getElementById("wood").innerHTML = wood;
         document.getElementById("lumberHutCost").innerHTML = lumberHutCost;
         document.getElementById("lumberHut").innerHTML = lumberHut;
+        document.getElementById("stone").innerHTML = stone;
+        document.getElementById("stoneHut").innerHTML = stoneHut;
+    }
+    function buildStoneHut() {
+        if (wood >= stoneHutCost) {
+            wood -= stoneHutCost;
+            stoneHut++;
+            stoneGatherStrength++;
+            stoneHutCost *= 1.75;
+            update();
+        }
+
     }
     document.writeln(@Model.wood);
     document.writeln(@Model.gatherStrength);
@@ -51,3 +72,7 @@
 <input type="button" onclick="gatherWood()" id="gatherWood" value="Gather Wood" /> <span id="wood">0</span><br /><br /><br />
 
 <input type="button" onclick="buildLumberHut()" id="buyLumberHut" value="Build Lumber Hut" /> <span>Wood needed: </span><span id="lumberHutCost">10</span><span>Lumber Huts: </span><span id="lumberHut">0</span><br /><br /><br />
+
+<input type="button" onclick="gatherStone()" id="gatherStone" value="Gather Stone" /> <span id="stone">0</span><br /><br /><br />
+
+<input type="button" onclick="buildStoneHut()" id="buyStoneHut" value="Build Stone Hut" /> <span>Wood needed: </span><span id="stoneHutCost">100</span><span>Stone Huts: </span><span id="stoneHut">0</span><br /><br /><br />

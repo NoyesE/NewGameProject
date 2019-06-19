@@ -20,7 +20,11 @@ namespace GameProject3.Controllers
                 wood = 0,
                 lumberHut = 0,
                 gatherStrength = 1,
-                lumberHutCost = 10
+                lumberHutCost = 10,
+                stone = 0,
+                stoneHut = 0,
+                stoneGatherStrength = 0,
+                stoneHutCost = 100
             };
             return View(myPlayer);
         }
